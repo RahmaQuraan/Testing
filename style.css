@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+#table-con {
+    width: 600px;
+}
+#table-con tr th{
+    border: solid black 1px;
+}
+#table-con tr td{
+    border: solid black 1px;
+}
