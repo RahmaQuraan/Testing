@@ -1,37 +1,3 @@
-/*let user={
-    name:'Rahma',
-    age:25,
-    location:'Irbed',
-    major: 'netwoek',
-    blogs:['network ', 'security']
-};
-console.log(user.name);
-console.log(user.age);
-console.log(user['location']);
-user['name'] ='Rahom';
-console.log(user['name']);
-console.log(typeof user);
-console.log(user['blogs']);
-console.log(user['major']);
-function Person(name, eyecolor, age,updateAge) {
-    this.name = name;
-    this.eyecolor = eyecolor;
-    this.age = age;
-    // this.updateAge = function () {
-    //     return this.age+=1;
-    // };
-}
-
-Person.prototype.updateAge= function(){
-    return this.age +=1;
-}
-let person01 = new Person("Rahma", "brown", 25);
-let person02 = new Person("Azez", "black", 26);
-
-console.log(person01.updateAge());
-console.log(person02.updateAge());
-//console.log(person02.name, person02.age);*/
-
 'use strict'
 const hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 let objcts = [];
@@ -139,3 +105,27 @@ function tableFooter() {
     tRow1.appendChild(td2);
     td2.textContent = totalOfTotals;
 }
+
+let form1= document.getElementById('locationForm');
+form1.addEventListener('submit',function(e){
+    e.preventDefault();
+    let locationName = e.target.locationName.value;
+    let maxNum = e.target.maxNum.value;
+    let minNum = e.target.minNum.value;
+    let avgCookies = e.target.avgCookies.value;
+    // console.log(locationName,maxNum,minNum,avgCookies);
+    let newLocation = new Shops(locationName, minNum, maxNum, avgCookies);
+    newLocation.getRandomNumOfCus();
+    newLocation.getAvgCookies();
+    console.log(newLocation);
+    let table= document.getElementById('table-con');
+    table.removeChild(table.lastChild);
+    newLocation.renderTable();
+    tableFooter();
+    form1.reset();
+})
+
+tableFooter()
+
+
+
